@@ -8,15 +8,14 @@ Data: 26/03/2026
 ---
 
 # 1. Definição do MVP
-Descreva aqui **qual parte do sistema** foi incluída no seu MVP.  
-Explique claramente:
 
-- O que está **dentro** do MVP  
-- O que está **fora** do MVP  
-- Por que você fez essas escolhas  
+O MVP consiste em três partes principais para o funcionamento básico do software:
+- Compras e vendas, incluindo o processo do início até o registro/checkout
+- Gestão de estoque, intimamente ligado às vendas para controlar a quantidade de cada produto
+- Financeiro, para registrar tanto as contas a pagar quanto a receber, à vista e a prazo
 
-Exemplo de início:  
-> “Meu MVP cobre o processo de venda desde a identificação/cadastro do cliente até a emissão do comprovante, incluindo tratamento de estoque insuficiente.”
+Haverá tratamento de erros básico no sistema. Todo o resto estará fora, pois não é estritamente
+necessário para o funcionamento.
 
 ---
 
