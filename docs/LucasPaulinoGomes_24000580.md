@@ -135,6 +135,8 @@ Ver UC02
 ### Relacionamentos
 - **Include:** UC04
 
+![DA_01_LucasPaulinoGomes_24000580](Diagramas/DA_01_LucasPaulinoGomes_24000580.png)
+
 ---
 
 ## **UC02 — Registrar venda a prazo**
@@ -150,11 +152,13 @@ Ver UC02
 4. Sistema retorna mensagem de sucesso
 5. Sistema emite comprovante
 
-### Fluxos Alternativos / Exceções
+### Fluxos Alternatiivos / Exceções
 Nenhum aparente
 
 ### Relacionamentos 
 - **Extend:** UC01
+
+![DA_02_LucasPaulinoGomes_24000580](Diagramas/DA_02_LucasPaulinoGomes_24000580.png)
 
 ---
 
@@ -182,6 +186,8 @@ Nenhum aparente
 ### Relacionamentos
 Nenhum
 
+![DA_03_LucasPaulinoGomes_24000580](Diagramas/DA_03_LucasPaulinoGomes_24000580.png)
+
 ---
 
 ## **UC04 — Atualizar estoque**
@@ -207,6 +213,8 @@ Nenhum
 ### Relacionamentos
 - **Include:** UC05
 
+![DA_04_LucasPaulinoGomes_24000580](Diagramas/DA_04_LucasPaulinoGomes_24000580.png)
+
 ---
 
 ## **UC05 — Notificar gerente**
@@ -230,6 +238,8 @@ Nenhum
 
 ### Relacionamentos
 Nenhum
+
+![DA_05_LucasPaulinoGomes_24000580](Diagramas/DA_05_LucasPaulinoGomes_24000580.png)
 
 ---
 
@@ -257,6 +267,8 @@ Nenhum
 ### Relacionamentos
 - **Include:** UC05
 
+![DA_06_LucasPaulinoGomes_24000580](Diagramas/DA_06_LucasPaulinoGomes_24000580.png)
+
 ---
 
 ## **UC07 — Cadastrar produto**
@@ -282,6 +294,8 @@ Nenhum
 ### Relacionamentos
 - **Include:** UC04
 
+![DA_07_LucasPaulinoGomes_24000580](Diagramas/DA_07_LucasPaulinoGomes_24000580.png)
+
 ---
 
 ## **UC08 — Adicionar venda ao histórico do cliente**
@@ -304,6 +318,8 @@ Nenhum
 
 ### Relacionamentos
 - **Extend:** UC01
+
+![DA_08_LucasPaulinoGomes_24000580](Diagramas/DA_08_LucasPaulinoGomes_24000580.png)
 
 ---
 
@@ -330,6 +346,8 @@ Nenhum
 ### Relacionamentos
 - **Include:** UC04
 
+![DA_09_LucasPaulinoGomes_24000580](Diagramas/DA_09_LucasPaulinoGomes_24000580.png)
+
 ---
 
 ## **UC10 — Registrar devolução no histórico do cliente**
@@ -351,3 +369,5 @@ Nenhum
 
 ### Relacionamentos
 - **Extend:** UC09
+
+![DA_10_LucasPaulinoGomes_24000580](Diagramas/DA_10_LucasPaulinoGomes_24000580.png)
