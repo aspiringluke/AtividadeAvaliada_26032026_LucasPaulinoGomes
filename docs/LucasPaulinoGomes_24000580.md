@@ -109,17 +109,17 @@ A aplicação deve ser modular e apresentar baixo acoplamento entre módulos e c
 # 6. Documentação dos Casos de Uso
 
 ## **UC01 — Registrar venda à vista**
-**Ator(es): Atendente, sistema**
-**Descrição: Registra a venda de um medicamento**
-**Pré-condições: Nenhuma**
-**Pós-condições: Venda registrada e estoque atualizado**
+**Ator(es):** Atendente
+**Descrição:** Registra a venda de um medicamento
+**Pré-condições:** Nenhuma
+**Pós-condições:** Venda registrada e estoque atualizado
 
 ### Fluxo Principal
 1. Atendente pesquisa um produto no sistema
 2. Sistema procura e retorna os resultados correspondentes
 3. Atendente seleciona o produto desejado
 4. Atendente insere a quantidade
-5. Sistema valida a quantidade
+5. Sistema valida a quantidade e atualiza o estoque
 6. Atendente marca a venda como à vista
 7. Sistema registra a venda no banco e retorna sucesso
 8. Sistema emite comprovante
@@ -128,23 +128,20 @@ A aplicação deve ser modular e apresentar baixo acoplamento entre módulos e c
 - FA01 — Produto não encontrado
 1. Sistema retorna mensagem de "não encontrado"
 - FA02 — Estoque insuficiente
-1. Sistema percebe que a quantidade solicitada excede a em estoque
-2. Sistema retorna mensagem de erro
+Ver UC04
 - FA03 — Registro de venda a prazo
 Ver UC02
 
 ### Relacionamentos
-Nenhum
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+- **Include:** UC04
 
 ---
 
 ## **UC02 — Registrar venda a prazo**
-**Ator(es): Atendente, sistema**
-**Descrição: Registrar vendas de medicamentos a prazo**
-**Pré-condições: Nenhuma**
-**Pós-condições: Venda a prazo adicionada às contas a receber**
+**Ator(es):** Atendente
+**Descrição:** Registrar vendas de medicamentos a prazo
+**Pré-condições:** Nenhuma
+**Pós-condições:** Venda a prazo adicionada às contas a receber
 
 ### Fluxo Principal
 1. Atendente inicia o registro da venda
@@ -159,12 +156,10 @@ Nenhum aparente
 ### Relacionamentos 
 - **Extend:** UC01
 
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
-
 ---
 
 ## **UC03 — Registrar cliente**
-**Ator(es): Atendente, sistema**
+**Ator(es): Atendente**
 **Descrição: Registro de cliente para acompanhamento do histórico de compra**
 **Pré-condições: Nenhuma**
 **Pós-condições: Cliente registrado no banco de dados da empresa**
@@ -185,177 +180,174 @@ Nenhum aparente
 2. Sistema retorna um aviso e os dados
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+Nenhum
 
 ---
 
-## **UC04 — Nome do Caso de Uso**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+## **UC04 — Atualizar estoque**
+**Ator(es): Sistema**
+**Descrição: Atualizar as quantidades de estoque aplicando as regras de negócio**
+**Pré-condições: Produto(s) cadastrado(s) no estoque, uma das operações descritas em RF02 realizada**
+**Pós-condições: Quantidade do(s) produto(s) atualizada no estoque**
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
+1. Uma operação (venda, devolução, perda, transferência, reposição) é realizada
+2. O sistema recebe os produtos afetados com suas respectivas quantidades
+3. O sistema compara as quantidades requisitadas com as em estoque
+4. O sistema atualiza as quantidades em estoque e retorna sucesso
 
 ### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+- FA01 — Estoque insuficiente
+1. O sistema identifica que a quantidade requisitada excede a em estoque
+2. O sistema retorna mensagem de erro
+- FA02 — Notificar gerente do esgotamento do estoque
+1. Sistema identifica que a quantidade atualizada está abaixo de um nível mínimo
+2. Sistema envia notificação ao gerente conforme UC05
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+- **Include:** UC05
 
 ---
 
-## **UC05 — Nome do Caso de Uso**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+## **UC05 — Notificar gerente**
+**Ator(es):** Sistema
+**Descrição:** Enviar notificação ao gerente sobre assuntos que precisam da sua atenção
+**Pré-condições:** Nenhuma
+**Pós-condições:** Notificação enviada e registrada
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
+1. O sistema recebe uma solicitação de envio de notificação de outra parte do sistema
+2. O sistema constrói uma mensagem correspondente ao tópico recebido (vencimento de contas, estoque esgotando)
+3. O sistema envia um email e um SMS para o gerente
+4. O sistema registra a notificação e retorna sucesso
 
 ### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+- FA01 — Serviços indisponíveis
+1. O sistema reconhece que um ou ambos os serviços encontram-se indisponíveis
+2. O sistema espera alguns minutos e tenta reenviar a mensagem, repetindo o processo 3 vezes
+3. O sistema registra o erro e reagenda o envio para algumas horas mais tarde
+4. O sistema retorna uma notifição interna acerca da indisponibilidade dos serviços
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+Nenhum
 
 ---
 
-## **UC06 — Nome do Caso de Uso**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+## **UC06 — Verificar vencimento**
+**Ator(es):** Sistema
+**Descrição:** Verificar o vencimento de contas
+**Pré-condições:** Conta a pagar/receber registrada
+**Pós-condições:** Status da conta mantido ou atualizado
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
+1. O sistema aciona um serviço automático diário de verificação
+2. O sistema compara as datas de cada conta a pagar e a receber com a data atual
+3. O sistema mantém o status da conta se ela estiver dentro do prazo
+4. O sistema encerra a verificação
 
 ### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+- FA01 — Conta próxima do vencimento
+1. A data da conta está a 1 semana ou menos do vencimento
+2. O sistema notifica o gerente do vencimento próximo
+- FA02 — Conta vencida
+1. A data da conta é anterior à data atual
+2. O sistema altera o status da conta para "atrasada"
+3. O sistema notifica o gerente do vencimento
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+- **Include:** UC05
 
 ---
 
-## **UC07 — Nome do Caso de Uso**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+## **UC07 — Cadastrar produto**
+**Ator(es):** Gerente
+**Descrição:** Adicionar novo produto ao estoque
+**Pré-condições:** Nenhuma
+**Pós-condições:** Novo produto cadastrado no estoque
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
+1. Gerente acessa aba de cadastro de produto
+2. Gerente insere informações do novo produto
+3. Gerente confirma criação
+4. Sistema valida informações do produto
+5. Sistema registra produto no banco e retorna sucesso
+6. Gerente insere a quantidade do produto
+7. O sistema atualiza o estoque como reposição
 
 ### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+- FA01 — Informações insuficientes
+1. O gerente confirma a criação sem inserir todas as informações
+2. O sistema retorna mensagem de erro e cancela a criação
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+- **Include:** UC04
 
 ---
 
-## **UC08 — Nome do Caso de Uso**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+## **UC08 — Adicionar venda ao histórico do cliente**
+**Ator(es):** Atendente
+**Descrição:** Vincula uma venda a um cliente cadastrado
+**Pré-condições:** Cliente cadastrado
+**Pós-condições:** Venda registrada no histórico do cliente
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
+1. Atendente inicia um registro de venda
+2. Atendente insere dados do cliente no registro de venda
+3. Sistema verifica cadastro do cliente
+4. Sistema insere registro da venda no histórico do cliente
+5. Sistema retorna mensagem de sucesso
 
 ### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+- FA01 — Cliente não cadastrado
+1. Sistema não encontra cadastro
+2. Sistema retorna aviso
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+- **Extend:** UC01
 
 ---
 
-## **UC09 — Nome do Caso de Uso**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+## **UC09 — Cancelar venda**
+**Ator(es):** Atendente
+**Descrição:** Cancela uma venda previamente realizada, processando a devolução do produto
+**Pré-condições:** Venda registrada no sistema
+**Pós-condições:** Status da venda alterado para cancelado e estoque atualizado
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
+1. Atendente localiza a venda correspondente no sistema
+2. Atendente solicita o cancelamento e a devolução do item
+3. Sistema verifica se a venda ocorreu há no máximo 15 dias (RN05)
+4. Sistema altera o status da venda para "cancelada"
+5. Sistema envia os dados do produto devolvido para atualização do estoque
+6. Sistema retorna mensagem de sucesso e emite comprovante de cancelamento
 
 ### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+- FA01 — Condições de devolução não atendidas
+1. Sistema identifica que o prazo de 15 dias expirou ou o atendente marca que o produto foi utilizado
+2. Sistema bloqueia a operação
+3. Sistema retorna mensagem de erro
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+- **Include:** UC04
 
 ---
 
-## **UC10 — Nome do Caso de Uso**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+## **UC10 — Registrar devolução no histórico do cliente**
+**Ator(es):** Sistema
+**Descrição:** Registra o evento de devolução e cancelamento no histórico do cliente correspondente
+**Pré-condições:** Cancelamento de venda registrado
+**Pós-condições:** Histórico do cliente atualizado com o registro da devolução
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
+1. Sistema identifica que a venda recém-cancelada possuía vínculo com um cliente cadastrado
+2. Sistema acessa o banco de dados e localiza o cadastro do cliente
+3. Sistema insere os detalhes da devolução (data, produto e motivo) no histórico do cliente (RN04)
+4. Sistema conclui a operação em segundo plano
 
 ### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+- FA01 — Venda sem cliente vinculado
+1. Sistema identifica que a venda cancelada não possuía um cliente associado
+2. O fluxo é encerrado sem realizar alterações em banco de dados
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
-
----
+- **Extend:** UC09
