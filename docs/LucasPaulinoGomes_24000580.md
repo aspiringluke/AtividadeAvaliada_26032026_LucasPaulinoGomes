@@ -33,18 +33,38 @@ Liste e descreva **cada RN** de forma clara.
 ---
 
 # 3. Requisitos Funcionais (mínimo: 8)
-Liste os requisitos funcionais do seu MVP.
 
-**RF01 —**  
-**RF02 —**  
-**RF03 —**  
-**RF04 —**  
-**RF05 —**  
-**RF06 —**  
-**RF07 —**  
-**RF08 —**  
+**RF01 — Registrar venda**
+Registro de venda realizadas no balcão ou por telefone, podendo ser
+à vista (pagamento imediato) ou a prazo (pagamento parcelado ou postergado)
 
-(Adicione mais se quiser.)
+**RF02 — Atualizar estoque**
+Atualização automática das quantidades em estoque após qualquer uma dessas
+operações:
+- venda
+- devolução
+- perda
+- transferência
+- reposição após compra
+
+**RF03 — Cadastrar produto**
+Cadastro de novo produto com descrição, preço de venda, unidade de medida e fabricante
+
+**RF04 — Registrar cliente**
+Registro de cliente no banco de dados da farmácia com nome e CPF/CNPJ
+
+**RF05 — Vincular produto ao cliente**
+Cada nova venda pode ser vinculada a um cliente caso ele esteja registrado no sistema
+
+**RF06 — Notificar vencimento de conta**
+O sistema deve enviar uma notificação ao gerente quando uma conta (a pagar ou a receber)
+estiver a 1 semana de vencer, e outra quando estiver vencida
+
+**RF07 — Atualizar conta a pagar/receber**
+Quando uma conta vencer ou for paga, o sistema deve ajustar o status para o valor correspondente
+
+**RF08 — Cancelar venda**
+Numa devolução, a venda pode ser cancelada
 
 ---
 
