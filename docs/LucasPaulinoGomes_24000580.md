@@ -163,10 +163,10 @@ Nenhum aparente
 ---
 
 ## **UC03 — Registrar cliente**
-**Ator(es): Atendente**
-**Descrição: Registro de cliente para acompanhamento do histórico de compra**
-**Pré-condições: Nenhuma**
-**Pós-condições: Cliente registrado no banco de dados da empresa**
+**Ator(es):** Atendente
+**Descrição:** Registro de cliente para acompanhamento do histórico de compra
+**Pré-condições:** Nenhuma
+**Pós-condições:** Cliente registrado no banco de dados da empresa
 
 ### Fluxo Principal
 1. Atendente abre a página de registro de cliente
