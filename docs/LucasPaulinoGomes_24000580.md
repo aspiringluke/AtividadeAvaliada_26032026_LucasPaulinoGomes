@@ -76,6 +76,9 @@ Quando uma conta vencer ou for paga, o sistema deve ajustar o status para o valo
 **RF08 — Cancelar venda**
 Numa devolução, a venda pode ser cancelada
 
+**RF09 — Emitir comprovante**
+O sistema deve emitir um comprovante a cada venda realizada
+
 ---
 
 # 🛡 4. Requisitos Não Funcionais (mínimo: 4)
