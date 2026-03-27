@@ -101,18 +101,100 @@ A aplicação deve ser modular e apresentar baixo acoplamento entre módulos e c
 
 # 5. Casos de Uso (mínimo: 10)
 ### Inserir **diagrama de casos de uso geral**, demonstrando claramente:
-- os 10 casos
-- relação entre eles e atores
 - pelo menos 3 includes
 - pelo menos 3 extends
 
 ---
 
 # 6. Documentação dos Casos de Uso
-Para **cada caso de uso**, utilize o template abaixo:
+
+## **UC01 — Registrar venda à vista**
+**Ator(es): Atendente, sistema**
+**Descrição: Registra a venda de um medicamento**
+**Pré-condições: Nenhuma**
+**Pós-condições: Venda registrada e estoque atualizado**
+
+### Fluxo Principal
+1. Atendente pesquisa um produto no sistema
+2. Sistema procura e retorna os resultados correspondentes
+3. Atendente seleciona o produto desejado
+4. Atendente insere a quantidade
+5. Sistema valida a quantidade
+6. Atendente marca a venda como à vista
+7. Sistema registra a venda no banco e retorna sucesso
+8. Sistema emite comprovante
+
+### Fluxos Alternativos / Exceções
+- FA01 — Produto não encontrado
+1. Sistema retorna mensagem de "não encontrado"
+- FA02 — Estoque insuficiente
+1. Sistema percebe que a quantidade solicitada excede a em estoque
+2. Sistema retorna mensagem de erro
+- FA03 — Registro de venda a prazo
+Ver UC02
+
+### Relacionamentos
+Nenhum
+
+### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+
 ---
 
-## **UCXX — Nome do Caso de Uso**
+## **UC02 — Registrar venda a prazo**
+**Ator(es): Atendente, sistema**
+**Descrição: Registrar vendas de medicamentos a prazo**
+**Pré-condições: Nenhuma**
+**Pós-condições: Venda a prazo adicionada às contas a receber**
+
+### Fluxo Principal
+1. Atendente inicia o registro da venda
+2. Atendente marca a venda como a prazo
+3. Sistema adiciona a venda às contas a receber
+4. Sistema retorna mensagem de sucesso
+5. Sistema emite comprovante
+
+### Fluxos Alternativos / Exceções
+Nenhum aparente
+
+### Relacionamentos 
+- **Extend:** UC01
+
+### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+
+---
+
+## **UC03 — Registrar cliente**
+**Ator(es): Atendente, sistema**
+**Descrição: Registro de cliente para acompanhamento do histórico de compra**
+**Pré-condições: Nenhuma**
+**Pós-condições: Cliente registrado no banco de dados da empresa**
+
+### Fluxo Principal
+1. Atendente abre a página de registro de cliente
+2. Atendente insere as informações do cliente
+3. Sistema verifica a existência do cliente no banco
+4. Sistema cadastra o cliente no banco
+5. Sistema retorna mensagem de sucesso
+
+![alt text](image.png)
+
+### Fluxos Alternativos / Exceções
+- FA01 — Dados insuficientes
+1. O atendente tenta cadastrar sem algum dos dados necessários
+2. Sistema identifica o erro e retorna um aviso
+- FA02 — Cliente existente
+1. Sistema encontra um cliente com os mesmos dados no banco
+2. Sistema retorna um aviso e os dados
+
+### Relacionamentos
+- **Include:** (listar quando aplicável)  
+- **Extend:** (listar quando aplicável)  
+
+### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+
+---
+
+## **UC04 — Nome do Caso de Uso**
 **Ator(es):**  
 **Descrição:**  
 **Pré-condições:**  
@@ -136,6 +218,146 @@ Para **cada caso de uso**, utilize o template abaixo:
 
 ---
 
-> Repita essa estrutura para **todos os seus casos de uso** (mínimo 10).
+## **UC05 — Nome do Caso de Uso**
+**Ator(es):**  
+**Descrição:**  
+**Pré-condições:**  
+**Pós-condições:**  
 
+### Fluxo Principal
+1.  
+2.  
+3.  
+4.  
 
+### Fluxos Alternativos / Exceções
+- FA01 —  
+- FA02 —  
+
+### Relacionamentos
+- **Include:** (listar quando aplicável)  
+- **Extend:** (listar quando aplicável)  
+
+### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+
+---
+
+## **UC06 — Nome do Caso de Uso**
+**Ator(es):**  
+**Descrição:**  
+**Pré-condições:**  
+**Pós-condições:**  
+
+### Fluxo Principal
+1.  
+2.  
+3.  
+4.  
+
+### Fluxos Alternativos / Exceções
+- FA01 —  
+- FA02 —  
+
+### Relacionamentos
+- **Include:** (listar quando aplicável)  
+- **Extend:** (listar quando aplicável)  
+
+### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+
+---
+
+## **UC07 — Nome do Caso de Uso**
+**Ator(es):**  
+**Descrição:**  
+**Pré-condições:**  
+**Pós-condições:**  
+
+### Fluxo Principal
+1.  
+2.  
+3.  
+4.  
+
+### Fluxos Alternativos / Exceções
+- FA01 —  
+- FA02 —  
+
+### Relacionamentos
+- **Include:** (listar quando aplicável)  
+- **Extend:** (listar quando aplicável)  
+
+### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+
+---
+
+## **UC08 — Nome do Caso de Uso**
+**Ator(es):**  
+**Descrição:**  
+**Pré-condições:**  
+**Pós-condições:**  
+
+### Fluxo Principal
+1.  
+2.  
+3.  
+4.  
+
+### Fluxos Alternativos / Exceções
+- FA01 —  
+- FA02 —  
+
+### Relacionamentos
+- **Include:** (listar quando aplicável)  
+- **Extend:** (listar quando aplicável)  
+
+### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+
+---
+
+## **UC09 — Nome do Caso de Uso**
+**Ator(es):**  
+**Descrição:**  
+**Pré-condições:**  
+**Pós-condições:**  
+
+### Fluxo Principal
+1.  
+2.  
+3.  
+4.  
+
+### Fluxos Alternativos / Exceções
+- FA01 —  
+- FA02 —  
+
+### Relacionamentos
+- **Include:** (listar quando aplicável)  
+- **Extend:** (listar quando aplicável)  
+
+### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+
+---
+
+## **UC10 — Nome do Caso de Uso**
+**Ator(es):**  
+**Descrição:**  
+**Pré-condições:**  
+**Pós-condições:**  
+
+### Fluxo Principal
+1.  
+2.  
+3.  
+4.  
+
+### Fluxos Alternativos / Exceções
+- FA01 —  
+- FA02 —  
+
+### Relacionamentos
+- **Include:** (listar quando aplicável)  
+- **Extend:** (listar quando aplicável)  
+
+### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+
+---
