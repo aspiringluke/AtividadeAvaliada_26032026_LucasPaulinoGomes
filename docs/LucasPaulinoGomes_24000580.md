@@ -81,12 +81,18 @@ Numa devolução, a venda pode ser cancelada
 # 🛡 4. Requisitos Não Funcionais (mínimo: 4)
 Liste os RNFs do sistema conforme seu MVP.
 
-**RNF01 —**  
-**RNF02 —**  
-**RNF03 —**  
-**RNF04 —**  
+**RNF01 — (Eficiência de Desempenho) Tempo de resposta**
+O sistema dever responder a solicitações simples em menos de 30ms
 
-(Adicione mais se quiser.)
+**RNF02 — (Segurança) Operações financeiras**
+Todas as operações financeiras devem ser autenticadas com tokens e registradas para auditoria
+
+**RNF03 — (Interoperabilidade) Padrão de comunicação**
+O sistema deve utilizar padrões REST para comunicação em rede, a fim de facilitar
+a integração entre diferentes unidades da empresa
+
+**RNF04 — (Manutenibilidade) Estrutura do código**
+A aplicação deve ser modular e apresentar baixo acoplamento entre módulos e classes
 
 ---
 
