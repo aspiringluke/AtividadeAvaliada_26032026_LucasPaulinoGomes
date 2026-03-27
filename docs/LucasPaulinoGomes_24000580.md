@@ -176,8 +176,6 @@ Nenhum aparente
 4. Sistema cadastra o cliente no banco
 5. Sistema retorna mensagem de sucesso
 
-![alt text](image.png)
-
 ### Fluxos Alternativos / Exceções
 - FA01 — Dados insuficientes
 1. O atendente tenta cadastrar sem algum dos dados necessários
