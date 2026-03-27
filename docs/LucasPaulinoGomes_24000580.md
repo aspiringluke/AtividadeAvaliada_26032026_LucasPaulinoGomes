@@ -22,13 +22,23 @@ necessário para o funcionamento.
 # 2. Regras de Negócio (mínimo: 5)
 Liste e descreva **cada RN** de forma clara.
 
-**RN01 —**  
-**RN02 —**  
-**RN03 —**  
-**RN04 —**  
-**RN05 —**  
+**RN01 — Limite pela quantidade em estoque**
+Cada venda só poderá ser realizada se houver quantidade suficiente do produto
+requisitado em estoque
 
-(Adicione mais se quiser.)
+**RN02 — Cadastro de produto**
+Um novo produto só deve ser cadastrado se tiver todas as informações requisitadas
+
+**RN03 — Produto esgotado**
+Produtos fora do estoque não podem ser vendidos
+
+**RN04 — Histórico do cliente**
+Devoluções deverão ser registradas no histórico do cliente
+
+**RN05 — Cancelamento de venda**
+Uma venda só poderá ser cancelada se
+1. o produto não tiver sido utilizado, e
+2. a devolução for realizada dentro de 15 dias
 
 ---
 
