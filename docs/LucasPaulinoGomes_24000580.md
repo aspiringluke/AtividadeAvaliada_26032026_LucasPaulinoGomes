@@ -100,9 +100,9 @@ A aplicação deve ser modular e apresentar baixo acoplamento entre módulos e c
 ---
 
 # 5. Casos de Uso (mínimo: 10)
-### Inserir **diagrama de casos de uso geral**, demonstrando claramente:
-- pelo menos 3 includes
-- pelo menos 3 extends
+
+![DUC_01_LucasPaulinoGomes_24000580](Diagramas/DUC_01_LucasPaulinoGomes_24000580.png)
+![DUC_02_LucasPaulinoGomes_24000580](Diagramas/DUC_02_LucasPaulinoGomes_24000580.png)
 
 ---
 
